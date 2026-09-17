@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Reporte de Solicitudes</title>
+</head>
+<body>
+  <h1>Reporte de Solicitudes</h1>
+
+  {% if solicitudes %}
+    <ul>
+      {% for s in solicitudes %}
+        <li>
+          <strong>Tipo:</strong> {{ s.tipo }} |
+          <strong>Motivo:</strong> {{ s.motivo }} |
+          <strong>Correo:</strong> {{ s.correo }} |
+          <strong>Teléfono:</strong> {{ s.telefono }} |
+          <strong>Fecha entrega:</strong> {{ s.fecha_entrega }}
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>No hay solicitudes registradas.</p>
+  {% endif %}
+
+  <p><a href="{{ url_for('index') }}">Volver al formulario</a></p>
+</body>
+</html>
